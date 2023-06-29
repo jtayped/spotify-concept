@@ -15,6 +15,7 @@ module.exports = {
         "primary-button": "#b88e9c",
         "secondary-button": "#090606",
         accent: "#8a5f56",
+        spotify: "#1DB954",
       },
       spacing: {
         sidebar: `${sidebarWidth}`,
