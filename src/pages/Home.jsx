@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <div className="text-text bg-background font-gotham">
       <SideBar spotify={spotify} />
-      <main className="ml-sidebar p-10 flex flex-col gap-5">
+      <main className="md:ml-sidebar p-10 flex flex-col gap-5">
         <LatestTracks spotify={spotify} />
       </main>
 
