@@ -125,7 +125,7 @@ const SideBar = ({ spotify }) => {
 
   useEffect(() => {
     spotify.getMe().then((data) => setUserData(data));
-    spotify.getMySavedAlbums({ limit: 4 }).then((data) => setSavedAlbums(data));
+    spotify.getMySavedAlbums({ limit: 3 }).then((data) => setSavedAlbums(data));
     spotify.getMyTopTracks({ limit: 10 }).then((data) => {
       setTopTracks(data);
       const randomIndex = Math.floor(Math.random() * data.items.length);
@@ -205,14 +205,11 @@ const SideBar = ({ spotify }) => {
                 trackData={topTracks.items[0]}
               />
             </li>
-            <div className="grid grid-cols-2">
-              <li className="row-span-">
-                <TrackPreviewSm
-                  spotify={spotify}
-                  trackData={topTracks.items[3]}
-                />
+            {topTracks.items.slice(3, 5).map((trackData, index) => (
+              <li key={index}>
+                <TrackPreviewSm spotify={spotify} trackData={trackData} />
               </li>
-            </div>
+            ))}
           </ul>
         </div>
         <div className="bg-white/10 backdrop-blur-sm p-2 rounded-lg border border-gray-200/10">
