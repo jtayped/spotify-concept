@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import { BsPlayFill } from "react-icons/bs";
 
 const PlaylistPreview = ({ playlistData }) => {
-  console.log(playlistData);
   return (
     <div className="p-3 xl:p-2 bg-white/10 rounded-xl flex flex-col xl:flex-row gap-3 justify-between">
       <div className="flex flex-col xl:flex-row gap-2 xl:gap-5 overflow-hidden">
