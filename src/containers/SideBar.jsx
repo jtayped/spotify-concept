@@ -24,7 +24,7 @@ const ArtistPreviewSm = ({ artistData }) => {
   return (
     <a
       href={artistData.external_urls.spotify}
-      className="relative h-20 rounded-full flex items-center justify-center overflow-hidden bg-secondary-button border border-gray-400/30 shadow"
+      className="relative h-[90px] rounded-full flex items-center justify-center overflow-hidden bg-secondary-button border border-gray-400/30 shadow"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -135,7 +135,7 @@ const SideBar = ({ spotify }) => {
   const currentPage = window.location.pathname;
 
   return (
-    <aside className="fixed lef-0 h-screen w-sidebar bg-secondary-button z-[10] p-4 flex flex-col gap-5 text-text/90">
+    <aside className="fixed lef-0 h-screen w-sidebar bg-secondary-button z-[10] p-4 flex flex-col gap-5 text-text/90 border-r border-gray-500/30 overflow-hidden">
       <img
         className="absolute top-0 left-0 w-full h-full object-cover object-center opacity-10 blur-[10px]"
         src={topTracks.items[0].album.images[0].url}
