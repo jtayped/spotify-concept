@@ -1,5 +1,5 @@
 // React Util
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // JSX Components
@@ -11,19 +11,23 @@ import SpotifyWebApi from "spotify-web-api-js";
 
 const spotify = new SpotifyWebApi();
 
+let _spotifyToken = "";
 const Home = () => {
+  const [hasToken, setHasToken] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const _spotifyToken = getTokenFromURL().access_token;
+    _spotifyToken = getTokenFromURL().access_token;
 
     if (_spotifyToken) {
       spotify.setAccessToken(_spotifyToken);
-    } else {
-      navigate("/");
+      setHasToken(true);
     }
   }, [navigate]);
 
+  if (!hasToken) {
+    return <div></div>;
+  }
   return (
     <div className="text-text bg-background font-gotham">
       <SideBar spotify={spotify} />
