@@ -24,7 +24,7 @@ const ArtistPreviewSm = ({ artistData }) => {
   return (
     <a
       href={artistData.external_urls.spotify}
-      className="relative h-20 rounded-full flex items-center justify-center overflow-hidden bg-secondary-button border border-gray-400/30"
+      className="relative h-20 rounded-full flex items-center justify-center overflow-hidden bg-secondary-button border border-gray-400/30 shadow"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -58,7 +58,7 @@ const TrackPreviewSm = ({ spotify, trackData }) => {
   return (
     <a
       href={trackData.external_urls.spotify}
-      className="relative h-[50px] flex items-center justify-center rounded overflow-hidden bg-secondary-button border border-gray-400/30"
+      className="relative h-[50px] flex items-center justify-center rounded overflow-hidden bg-secondary-button border border-gray-400/30 shadow"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -94,7 +94,7 @@ const AlbumPreviewSm = ({ spotify, albumData }) => {
   return (
     <a
       href={albumData.album.external_urls.spotify}
-      className="relative h-[50px] flex items-center justify-center rounded overflow-hidden bg-secondary-button border border-gray-400/30"
+      className="relative h-[50px] flex items-center justify-center rounded overflow-hidden bg-secondary-button border border-gray-400/30 shadow"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
