@@ -121,24 +121,30 @@ const SideBar = ({ spotify }) => {
   const [savedAlbums, setSavedAlbums] = useState(null);
   const [topTracks, setTopTracks] = useState(null);
   const [topArtists, setTopArtists] = useState(null);
+  const [backgroundImage, setBackgroundImage] = useState("");
 
   useEffect(() => {
     spotify.getMe().then((data) => setUserData(data));
     spotify.getMySavedAlbums({ limit: 4 }).then((data) => setSavedAlbums(data));
-    spotify.getMyTopTracks({ limit: 5 }).then((data) => setTopTracks(data));
+    spotify.getMyTopTracks({ limit: 10 }).then((data) => {
+      setTopTracks(data);
+      const randomIndex = Math.floor(Math.random() * data.items.length);
+      setBackgroundImage(data.items[randomIndex].album.images[0].url);
+    });
     spotify.getMyTopArtists({ limit: 10 }).then((data) => setTopArtists(data));
   }, [spotify]);
 
   if (!userData || !savedAlbums || !topTracks || !topArtists) {
     return <div></div>;
   }
+
   const currentPage = window.location.pathname;
 
   return (
     <aside className="fixed lef-0 h-screen w-sidebar bg-secondary-button z-[10] p-4 flex flex-col gap-5 text-text/90 border-r border-gray-500/30 overflow-hidden">
       <img
         className="absolute top-0 left-0 w-full h-full object-cover object-center opacity-10 blur-[10px]"
-        src={topTracks.items[0].album.images[0].url}
+        src={backgroundImage}
         alt=""
       />
       <div className="flex flex-col gap-3">
