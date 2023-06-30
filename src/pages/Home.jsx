@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // JSX Components
-import { SideBar } from "../containers";
+import { SideBar, LatestTracks } from "../containers";
 
 // Spotify
 import { getTokenFromURL } from "../spotify/auth";
@@ -31,6 +31,9 @@ const Home = () => {
   return (
     <div className="text-text bg-background font-gotham">
       <SideBar spotify={spotify} />
+      <main className="ml-sidebar p-10 flex flex-col gap-5">
+        <LatestTracks spotify={spotify} />
+      </main>
 
       <div className="absolute z-[0] w-[60%] h-[60%] top-0 green__gradient" />
       <div className="absolute z-[1] w-[35%] h-[35%] right-0 bottom-0 white__gradient" />
