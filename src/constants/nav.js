@@ -1,19 +1,19 @@
-import { BsFillHouseFill, BsSearch, BsBookmarksFill } from "react-icons/bs";
+import { FaHouseUser, FaSearch, FaBook } from "react-icons/fa";
 
 export const mainPages = [
   {
     name: "Home",
-    icon: <BsFillHouseFill />,
+    icon: <FaHouseUser />,
     href: "/home",
   },
   {
     name: "Search",
-    icon: <BsSearch />,
+    icon: <FaSearch />,
     href: "/search",
   },
   {
     name: "Your Library",
-    icon: <BsBookmarksFill />,
+    icon: <FaBook />,
     href: "/your-library",
   },
 ];
