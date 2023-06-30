@@ -7,114 +7,8 @@ import DefaultPFP from "../assets/images/defaultPfp.jpg";
 // Constants
 import { mainPages } from "../constants/nav";
 
-// Icons
-import { RxOpenInNewWindow } from "react-icons/rx";
-
-const ArtistPreviewSm = ({ artistData }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
-  return (
-    <a
-      href={artistData.external_urls.spotify}
-      className="relative h-[90px] rounded-full flex items-center justify-center overflow-hidden bg-secondary-button border border-gray-400/30 shadow"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        "--image-url": `url(${artistData.images[0].url})`,
-      }}
-    >
-      <div
-        className={`absolute inset-0 bg-center bg-cover rounded transition-all duration-300 transform ${
-          isHovered ? "scale-110 opacity-80" : "scale-100 opacity-30"
-        }`}
-        style={{
-          backgroundImage: "var(--image-url)",
-        }}
-      ></div>
-      <RxOpenInNewWindow size={25} />
-    </a>
-  );
-};
-
-const TrackPreviewSm = ({ spotify, trackData }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
-  return (
-    <a
-      href={trackData.external_urls.spotify}
-      className="relative h-[50px] flex items-center justify-center rounded overflow-hidden bg-secondary-button border border-gray-400/30 shadow"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        "--image-url": `url(${trackData.album.images[0].url})`,
-      }}
-    >
-      <div
-        className={`absolute inset-0 bg-center bg-cover rounded transition-all duration-300 transform ${
-          isHovered ? "scale-105 opacity-50" : "scale-100 opacity-20"
-        }`}
-        style={{
-          backgroundImage: "var(--image-url)",
-        }}
-      ></div>
-      <h3 className="text-sm relative whitespace-nowrap text-center truncate ... max-w-[90%]">
-        {trackData.album.name}
-      </h3>
-    </a>
-  );
-};
-
-const AlbumPreviewSm = ({ spotify, albumData }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
-  return (
-    <a
-      href={albumData.album.external_urls.spotify}
-      className="relative h-[50px] flex items-center justify-center rounded overflow-hidden bg-secondary-button border border-gray-400/30 shadow"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        "--image-url": `url(${albumData.album.images[0].url})`,
-      }}
-    >
-      <div
-        className={`absolute inset-0 bg-center bg-cover rounded transition-all duration-300 transform ${
-          isHovered ? "scale-105 opacity-50" : "scale-100 opacity-20"
-        }`}
-        style={{
-          backgroundImage: "var(--image-url)",
-        }}
-      ></div>
-      <h3 className="z-[5] font-bold text-xl relative whitespace-nowrap text-center truncate ... max-w-[90%]">
-        {albumData.album.name}
-      </h3>
-    </a>
-  );
-};
+// JSX Components
+import { AlbumPreviewSm, TrackPreviewSm, ArtistPreviewSm } from "../components";
 
 const SideBar = ({ spotify }) => {
   const [userData, setUserData] = useState(null);
@@ -184,7 +78,7 @@ const SideBar = ({ spotify }) => {
           <ul className="flex flex-col gap-2">
             {savedAlbums.items.map((albumData, index) => (
               <li key={index}>
-                <AlbumPreviewSm spotify={spotify} albumData={albumData} />
+                <AlbumPreviewSm albumData={albumData} />
               </li>
             ))}
           </ul>
@@ -195,7 +89,7 @@ const SideBar = ({ spotify }) => {
             <div className="grid grid-cols-2 gap-2">
               {topTracks.items.slice(1, 3).map((trackData, index) => (
                 <li key={index}>
-                  <TrackPreviewSm spotify={spotify} trackData={trackData} />
+                  <TrackPreviewSm trackData={trackData} />
                 </li>
               ))}
             </div>
@@ -207,7 +101,7 @@ const SideBar = ({ spotify }) => {
             </li>
             {topTracks.items.slice(3, 5).map((trackData, index) => (
               <li key={index}>
-                <TrackPreviewSm spotify={spotify} trackData={trackData} />
+                <TrackPreviewSm trackData={trackData} />
               </li>
             ))}
           </ul>
