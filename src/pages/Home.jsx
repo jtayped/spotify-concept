@@ -36,7 +36,6 @@ const Home = () => {
       </main>
 
       <div className="absolute z-[0] w-[60%] h-[60%] top-0 green__gradient" />
-      <div className="absolute z-[1] w-[35%] h-[35%] right-0 bottom-0 white__gradient" />
     </div>
   );
 };
