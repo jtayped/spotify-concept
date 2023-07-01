@@ -21,6 +21,7 @@ const Home = () => {
 
     if (_spotifyToken) {
       spotify.setAccessToken(_spotifyToken);
+      console.log(_spotifyToken);
       setHasToken(true);
     }
   }, [navigate]);
