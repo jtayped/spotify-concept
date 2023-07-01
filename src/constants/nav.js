@@ -1,19 +1,19 @@
-import { FaHouseUser, FaSearch, FaBook } from "react-icons/fa";
+import { AiFillHome, AiOutlineSearch, AiOutlineBook } from "react-icons/ai";
 
 export const mainPages = [
   {
     name: "Home",
-    icon: <FaHouseUser />,
+    icon: <AiFillHome />,
     href: "/home",
   },
   {
     name: "Search",
-    icon: <FaSearch />,
+    icon: <AiOutlineSearch />,
     href: "/search",
   },
   {
     name: "Your Library",
-    icon: <FaBook />,
+    icon: <AiOutlineBook />,
     href: "/your-library",
   },
 ];
