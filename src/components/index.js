@@ -4,3 +4,4 @@ export { default as TrackPreviewSm } from "./TrackPreviewSm";
 export { default as ArtistPreviewSm } from "./ArtistPreviewSm";
 export { default as PlaylistPreview } from "./PlaylistPreview";
 export { default as TrackPreviewMd } from "./TrackPreviewMd";
+export { default as Artists } from "./Artists";

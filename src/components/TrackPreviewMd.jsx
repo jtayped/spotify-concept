@@ -3,6 +3,9 @@ import React, { useState } from "react";
 // Icons
 import { BsPlayFill } from "react-icons/bs";
 
+// JSX Components
+import Artists from "./Artists";
+
 const TrackPreviewMd = ({ trackData }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -27,7 +30,7 @@ const TrackPreviewMd = ({ trackData }) => {
           alt="Track"
         />
         <button
-          className={`absolute right-1 bottom-1 rounded-full bg-primary-button hover:bg-primary-button/90 p-2 ${
+          className={`absolute right-1.5 bottom-1.5 rounded-full bg-primary-button hover:bg-primary-button/90 p-2 ${
             isHovered ? "flex" : "hidden"
           }`}
         >
@@ -35,23 +38,7 @@ const TrackPreviewMd = ({ trackData }) => {
         </button>
       </div>
       <h3 className="line-clamp-2 text-lg">{trackData.name}</h3>
-      <ol className="text-xs gap-1">
-        {trackData.artists.map((artist, index) => (
-          <React.Fragment key={artist.id}>
-            <li>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={artist.external_urls.spotify}
-                className="hover:underline"
-              >
-                {artist.name}
-              </a>
-              {index !== trackData.artists.length - 1 && ", "}
-            </li>
-          </React.Fragment>
-        ))}
-      </ol>
+      <Artists artists={trackData.artists} />
     </div>
   );
 };
