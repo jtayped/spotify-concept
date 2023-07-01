@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 // JSX Components
 import { PlaylistPreview } from "../components";
 
-const LatestTracks = ({ spotify }) => {
+const LatestPlaylists = ({ spotify }) => {
   const [playlists, setPlaylists] = useState([]);
   const [loading, setLoading] = useState([]);
 
@@ -49,4 +49,4 @@ const LatestTracks = ({ spotify }) => {
   );
 };
 
-export default LatestTracks;
+export default LatestPlaylists;

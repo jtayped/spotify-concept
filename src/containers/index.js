@@ -1,2 +1,2 @@
 export { default as SideBar } from "./SideBar";
-export { default as LatestTracks } from "./LatestTracks";
+export { default as LatestPlaylists } from "./LatestPlaylists";
