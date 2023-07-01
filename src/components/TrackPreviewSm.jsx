@@ -30,7 +30,7 @@ const TrackPreviewSm = ({ trackData }) => {
         }}
       ></div>
       <h3 className="text-sm relative whitespace-nowrap text-center truncate ... max-w-[90%]">
-        {trackData.album.name}
+        {trackData.name}
       </h3>
     </a>
   );
