@@ -31,7 +31,7 @@ const TrackPreviewMd = ({ trackData }) => {
         </button>
       </div>
       <h3 className="line-clamp-2 text-lg">{trackData.name}</h3>
-      <ol className="text-xs gap-1 w-[200px] md:w-[300px]">
+      <ol className="text-xs gap-1">
         {trackData.artists.map((artist, index) => (
           <React.Fragment key={artist.id}>
             <li>
