@@ -10,12 +10,11 @@ module.exports = {
         gotham: ["Gotham", "ui-sans-serif"],
       },
       colors: {
-        text: "#f1e9f0",
-        background: "#130c12",
-        "primary-button": "#b88e9c",
-        "secondary-button": "#090606",
-        accent: "#8a5f56",
-        spotify: "#1DB954",
+        text: "#ffffff",
+        background: "#041320",
+        "primary-button": "#e53495",
+        "secondary-button": "#000000",
+        accent: "#609e15",
       },
       spacing: {
         sidebar: `${sidebarWidth}`,
