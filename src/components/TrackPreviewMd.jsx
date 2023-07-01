@@ -21,7 +21,11 @@ const TrackPreviewMd = ({ trackData }) => {
       className="flex flex-col bg-white/10 hover:bg-white/20 border border-gray-50/10 rounded-lg p-2"
     >
       <div className="relative">
-        <img src={trackData.album.images[0].url} alt="Track" />
+        <img
+          className="rounded-md"
+          src={trackData.album.images[0].url}
+          alt="Track"
+        />
         <button
           className={`absolute right-1 bottom-1 rounded-full bg-primary-button hover:bg-primary-button/90 p-2 ${
             isHovered ? "flex" : "hidden"

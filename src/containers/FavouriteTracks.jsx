@@ -8,8 +8,15 @@ const FavouriteTracks = ({ spotify }) => {
   const [tracks, setTracks] = useState(null);
 
   useEffect(() => {
-    spotify.getMyTopTracks({ limit: 6 }).then((data) => setTracks(data));
+    spotify
+      .getMyTopTracks({ limit: 6 })
+      .then((data) => setTracks(data))
+      .catch((err) => {
+        console.error(err);
+        return <div></div>;
+      });
   }, [spotify, tracks]);
+
   if (!tracks) {
     return <div></div>;
   }
