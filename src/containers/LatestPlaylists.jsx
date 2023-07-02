@@ -1,7 +1,4 @@
-// React Util
 import React, { useEffect, useState } from "react";
-
-// JSX Components
 import { PlaylistPreview } from "../components";
 
 const LatestPlaylists = ({ spotify }) => {
@@ -38,13 +35,16 @@ const LatestPlaylists = ({ spotify }) => {
   if (loading) {
     return <div></div>;
   }
+
   return (
     <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 z-[11]">
-      {playlists.map((playlistData, index) => (
-        <li key={index}>
-          <PlaylistPreview playlistData={playlistData} />
-        </li>
-      ))}
+      {playlists
+        .slice(0, window.innerWidth < 640 ? 2 : 3)
+        .map((playlistData, index) => (
+          <li key={index}>
+            <PlaylistPreview playlistData={playlistData} />
+          </li>
+        ))}
     </ul>
   );
 };
