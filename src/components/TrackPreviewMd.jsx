@@ -40,7 +40,7 @@ const TrackPreviewMd = ({ spotify, trackData }) => {
       setArtistImage(data.images[0].url);
       console.log(data);
     });
-  }, []);
+  }, [spotify, trackData.artists]);
 
   return (
     <div
