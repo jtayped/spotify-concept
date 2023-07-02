@@ -27,18 +27,3 @@ body {
   -moz-osx-font-smoothing: grayscale;
   @apply bg-background;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.green__gradient {
-  background: linear-gradient(90deg, #191414 0%, #8a5f56 100%);
-  filter: blur(900px);
-}
-
-.white__gradient {
-  background: rgba(255, 255, 255, 0.3);
-  filter: blur(750px);
-}
