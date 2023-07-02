@@ -12,7 +12,7 @@ const PlaylistPreview = ({ playlistData }) => {
           <img
             className="w-full aspect-square xl:max-h-[100px] xl:min-w-[100px] rounded-md"
             src={playlistData.images[0].url}
-            alt=""
+            alt="Playlist Cover"
           />
         </a>
         <div className="flex flex-col text-xs max-w-[270px]">
