@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { BsPlayFill, BsPauseFill } from "react-icons/bs";
 import Artists from "./Artists";
 
-const TrackPreviewMd = ({ spotify, trackData }) => {
+// Animations
+import { motion } from "framer-motion";
+
+const TrackPreviewMd = ({ spotify, trackData, index }) => {
   const [artistImage, setArtistImage] = useState("");
 
   const [isHovered, setIsHovered] = useState(false);
@@ -42,7 +45,10 @@ const TrackPreviewMd = ({ spotify, trackData }) => {
   }, [spotify, trackData.artists]);
 
   return (
-    <div
+    <motion.div
+      initial={{ y: 5, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: index * 0.075 }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className="relative flex flex-col bg-white/10 hover:bg-white/20 border border-gray-50/10 rounded-lg p-2 min-w-[130px] max-w-[275px] sm:min-w-[150px] overflow-hidden"
@@ -82,7 +88,7 @@ const TrackPreviewMd = ({ spotify, trackData }) => {
       </div>
       <h3 className="line-clamp-1 text-md sm:text-lg">{trackData.name}</h3>
       <Artists artists={trackData.artists} />
-    </div>
+    </motion.div>
   );
 };
 

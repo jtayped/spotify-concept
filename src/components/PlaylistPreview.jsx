@@ -1,7 +1,13 @@
+// React Util
 import React, { useState } from "react";
+
+// Icons
 import { BsPlayFill, BsPauseFill } from "react-icons/bs";
 
-const PlaylistPreview = ({ playlistData }) => {
+// Animations
+import { motion } from "framer-motion";
+
+const PlaylistPreview = ({ playlistData, index }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 
@@ -22,7 +28,12 @@ const PlaylistPreview = ({ playlistData }) => {
   const currentTrack = playlistData.tracks.items[currentTrackIndex];
 
   return (
-    <div className="p-3 xl:p-2 bg-white/10 hover:bg-white/20 rounded-lg sm:rounded-xl flex flex-col xl:flex-row gap-3 justify-between border border-gray-50/10">
+    <motion.div
+      initial={{ y: -10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: index * 0.075 }}
+      className="p-3 xl:p-2 bg-white/10 hover:bg-white/20 rounded-lg sm:rounded-xl flex flex-col xl:flex-row gap-3 justify-between border border-gray-50/10"
+    >
       <div className="flex flex-col xl:flex-row gap-2 xl:gap-5 overflow-hidden">
         <a href={playlistData.external_urls.spotify}>
           <img
@@ -61,7 +72,7 @@ const PlaylistPreview = ({ playlistData }) => {
           onEnded={playNextTrack}
         />
       )}
-    </div>
+    </motion.div>
   );
 };
 

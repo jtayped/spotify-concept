@@ -42,9 +42,7 @@ const LatestPlaylists = ({ spotify }) => {
         .slice(0, window.innerWidth < 640 ? 2 : 3)
         .map((playlistData, index) => (
           <li key={index}>
-            <PlaylistPreview
-              playlistData={playlistData}
-            />
+            <PlaylistPreview playlistData={playlistData} index={index} />
           </li>
         ))}
     </ul>

@@ -10,6 +10,9 @@ import { mainPages } from "../constants/nav";
 // JSX Components
 import { AlbumPreviewSm, TrackPreviewSm, ArtistPreviewSm } from "../components";
 
+// Animations
+import { motion } from "framer-motion";
+
 const SideBar = ({ spotify }) => {
   const [userData, setUserData] = useState(null);
   const [savedAlbums, setSavedAlbums] = useState(null);
@@ -73,7 +76,11 @@ const SideBar = ({ spotify }) => {
       </div>
 
       <div className="flex flex-col gap-3">
-        <div className="bg-white/10 backdrop-blur-sm p-2 rounded-lg border border-gray-200/10">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="bg-white/10 backdrop-blur-sm p-2 rounded-lg border border-gray-200/10"
+        >
           <h2 className="text-xl font-bold">Saved Albums</h2>
           <ul className="flex flex-col gap-2">
             {savedAlbums.items.map((albumData, index) => (
@@ -82,8 +89,13 @@ const SideBar = ({ spotify }) => {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="bg-white/10 backdrop-blur-sm p-2 rounded-lg border border-gray-200/10">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.1 }}
+          className="bg-white/10 backdrop-blur-sm p-2 rounded-lg border border-gray-200/10"
+        >
           <h2 className="text-xl font-bold">Favourite Tracks</h2>
           <ul className="grid grid-rows-2 gap-2">
             <div className="grid grid-cols-2 gap-2">
@@ -105,8 +117,13 @@ const SideBar = ({ spotify }) => {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="bg-white/10 backdrop-blur-sm p-2 rounded-lg border border-gray-200/10">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="bg-white/10 backdrop-blur-sm p-2 rounded-lg border border-gray-200/10"
+        >
           <h2 className="text-xl font-bold">Artists</h2>
           <ul className="grid grid-cols-4 gap-2">
             {topArtists.items.slice(0, 4).map((artistData, index) => (
@@ -115,7 +132,7 @@ const SideBar = ({ spotify }) => {
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
       </div>
     </aside>
   );
