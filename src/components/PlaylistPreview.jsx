@@ -6,7 +6,7 @@ import { BsPlayFill } from "react-icons/bs";
 
 const PlaylistPreview = ({ playlistData }) => {
   return (
-    <div className="p-3 xl:p-2 bg-white/10 hover:bg-white/20 rounded-xl flex flex-col xl:flex-row gap-3 justify-between border border-gray-50/10">
+    <div className="p-3 xl:p-2 bg-white/10 hover:bg-white/20 rounded-lg sm:rounded-xl flex flex-col xl:flex-row gap-3 justify-between border border-gray-50/10">
       <div className="flex flex-col xl:flex-row gap-2 xl:gap-5 overflow-hidden">
         <a href={playlistData.external_urls.spotify}>
           <img
