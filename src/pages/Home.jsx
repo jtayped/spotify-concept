@@ -3,7 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // JSX Components
-import { SideBar, LatestPlaylists, FavouriteTracks } from "../containers";
+import {
+  SideBar,
+  LatestPlaylists,
+  FavouriteTracks,
+  PortfolioBanner,
+} from "../containers";
 
 // Spotify
 import { getTokenFromURL } from "../spotify/auth";
@@ -21,7 +26,6 @@ const Home = () => {
 
     if (_spotifyToken) {
       spotify.setAccessToken(_spotifyToken);
-      console.log(_spotifyToken);
       setHasToken(true);
     }
   }, [navigate]);
@@ -30,11 +34,12 @@ const Home = () => {
     return <div></div>;
   }
   return (
-    <div className="text-text bg-background font-gotham">
+    <div className="text-text bg-background font-gotham overflow-hidden">
       <SideBar spotify={spotify} />
-      <main className="md:ml-sidebar p-5 md:p-10 flex flex-col gap-5">
+      <main className="md:ml-sidebar p-5 md:p-10 flex flex-col gap-5 h-full">
         <LatestPlaylists spotify={spotify} />
         <FavouriteTracks spotify={spotify} />
+        <PortfolioBanner />
       </main>
 
       <div className="absolute z-[0] w-[60%] h-[60%] top-0 green__gradient" />

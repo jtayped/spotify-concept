@@ -22,7 +22,9 @@ const FavouriteTracks = ({ spotify }) => {
   }
 
   return (
-    <div className={`flex gap-3 z-[11] overflow-auto`}>
+    <div
+      className={`flex gap-3 z-[11] overflow-auto scrollbar-thin scrollbar-thumb-white/20 hover:scrollbar-thumb-white/30 pb-1`}
+    >
       {tracks.items.map((track, index) => (
         <TrackPreviewMd key={index} trackData={track} />
       ))}
