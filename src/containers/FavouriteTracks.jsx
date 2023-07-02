@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 // JSX
 import { TrackPreviewMd } from "../components";
 
-const FavouriteTracks = ({ spotify, setCurrentlyPlaying }) => {
+const FavouriteTracks = ({ spotify }) => {
   const [tracks, setTracks] = useState(null);
 
   useEffect(() => {
