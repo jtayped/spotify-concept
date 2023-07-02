@@ -39,7 +39,7 @@ const LatestPlaylists = ({ spotify }) => {
     return <div></div>;
   }
   return (
-    <ul className="grid grid-cols-3 gap-3 z-[11]">
+    <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 z-[11]">
       {playlists.map((playlistData, index) => (
         <li key={index}>
           <PlaylistPreview playlistData={playlistData} />
