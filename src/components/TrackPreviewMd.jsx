@@ -37,7 +37,7 @@ const TrackPreviewMd = ({ trackData }) => {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="flex flex-col bg-white/10 hover:bg-white/20 border border-gray-50/10 rounded-lg p-2 max-w-[275px] min-w-[150px]"
+      className="flex flex-col bg-white/10 hover:bg-white/20 border border-gray-50/10 rounded-lg p-2 min-w-[130px] max-w-[275px] sm:min-w-[150px]"
     >
       <div className="relative">
         <img
@@ -65,7 +65,7 @@ const TrackPreviewMd = ({ trackData }) => {
           />
         )}
       </div>
-      <h3 className="line-clamp-2 text-lg">{trackData.name}</h3>
+      <h3 className="line-clamp-2 text-md sm:text-lg">{trackData.name}</h3>
       <Artists artists={trackData.artists} />
     </div>
   );
