@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsPlayFill, BsPauseFill } from "react-icons/bs";
 import Artists from "./Artists";
 
-const TrackPreviewMd = ({ trackData }) => {
+const TrackPreviewMd = ({ spotify, trackData }) => {
+  const [artistImage, setArtistImage] = useState("");
+
   const [isHovered, setIsHovered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   let audioRef = null;
@@ -33,12 +35,26 @@ const TrackPreviewMd = ({ trackData }) => {
 
   const hasPreviewUrl = trackData.preview_url !== null;
 
+  useEffect(() => {
+    spotify.getArtist(trackData.artists[0].id).then((data) => {
+      setArtistImage(data.images[0].url);
+      console.log(data);
+    });
+  }, []);
+
   return (
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="flex flex-col bg-white/10 hover:bg-white/20 border border-gray-50/10 rounded-lg p-2 min-w-[130px] max-w-[275px] sm:min-w-[150px]"
+      className="relative flex flex-col bg-white/10 hover:bg-white/20 border border-gray-50/10 rounded-lg p-2 min-w-[130px] max-w-[275px] sm:min-w-[150px] overflow-hidden"
     >
+      {artistImage ? (
+        <img
+          className="absolute opacity-30 blur-sm top-0 left-0 w-full h-full object-cover object-center"
+          src={artistImage}
+          alt=""
+        />
+      ) : null}
       <div className="relative">
         <img
           className="rounded-md"
