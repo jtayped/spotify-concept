@@ -4,9 +4,8 @@ import React, { useEffect, useState } from "react";
 // JSX
 import { TrackPreviewMd } from "../components";
 
-const FavouriteTracks = ({ spotify }) => {
+const FavouriteTracks = ({ spotify, setCurrentlyPlaying }) => {
   const [tracks, setTracks] = useState(null);
-  const [numTracks, setNumTracks] = useState(6);
 
   useEffect(() => {
     spotify
@@ -26,7 +25,7 @@ const FavouriteTracks = ({ spotify }) => {
       className={`flex gap-3 z-[11] overflow-auto scrollbar-thin scrollbar-thumb-white/20 hover:scrollbar-thumb-white/30 pb-1`}
     >
       {tracks.items.map((track, index) => (
-        <TrackPreviewMd key={index} trackData={track} />
+        <TrackPreviewMd key={index} trackData={track} setCurrentlyPlaying={setCurrentlyPlaying} />
       ))}
     </div>
   );

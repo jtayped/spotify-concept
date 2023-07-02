@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PlaylistPreview } from "../components";
 
-const LatestPlaylists = ({ spotify }) => {
+const LatestPlaylists = ({ spotify, setCurrentlyPlaying }) => {
   const [playlists, setPlaylists] = useState([]);
   const [loading, setLoading] = useState([]);
 
@@ -42,7 +42,10 @@ const LatestPlaylists = ({ spotify }) => {
         .slice(0, window.innerWidth < 640 ? 2 : 3)
         .map((playlistData, index) => (
           <li key={index}>
-            <PlaylistPreview playlistData={playlistData} />
+            <PlaylistPreview
+              playlistData={playlistData}
+              setCurrentlyPlaying={setCurrentlyPlaying}
+            />
           </li>
         ))}
     </ul>

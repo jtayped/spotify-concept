@@ -18,6 +18,8 @@ const spotify = new SpotifyWebApi();
 
 let _spotifyToken = "";
 const Home = () => {
+  const [currentlyPlaying, setCurrentlyPlaying] = useState({});
+
   const [hasToken, setHasToken] = useState(false);
   const navigate = useNavigate();
 
@@ -41,7 +43,6 @@ const Home = () => {
         <FavouriteTracks spotify={spotify} />
         <PortfolioBanner />
       </main>
-
       <div className="absolute z-[0] w-[60%] h-[60%] top-0 green__gradient" />
     </div>
   );
