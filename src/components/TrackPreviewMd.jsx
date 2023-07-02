@@ -21,7 +21,7 @@ const TrackPreviewMd = ({ trackData }) => {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="flex flex-col bg-white/10 hover:bg-white/20 border border-gray-50/10 rounded-lg p-2"
+      className="flex flex-col bg-white/10 hover:bg-white/20 border border-gray-50/10 rounded-lg p-2 max-w-[275px] min-w-[150px]"
     >
       <div className="relative">
         <img
@@ -31,7 +31,7 @@ const TrackPreviewMd = ({ trackData }) => {
         />
         <button
           className={`absolute right-1.5 bottom-1.5 rounded-full bg-primary-button hover:bg-primary-button/90 p-2 ${
-            isHovered ? "flex" : "hidden"
+            isHovered ? "flex" : "md:hidden"
           }`}
         >
           <BsPlayFill size={18} />
