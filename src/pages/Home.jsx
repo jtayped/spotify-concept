@@ -18,7 +18,7 @@ const spotify = new SpotifyWebApi();
 
 let _spotifyToken = "";
 const Home = () => {
-  const [backgroundImage, setBackgroundImage] = useState("");
+  const [artist, setArtist] = useState("");
 
   const [hasToken, setHasToken] = useState(false);
   const navigate = useNavigate();
@@ -32,8 +32,23 @@ const Home = () => {
     }
   }, [navigate]);
 
+  useEffect(() => {
+    if (_spotifyToken) {
+      spotify.getMyTopArtists({ limit: 5 }).then((data) => {
+        const randomIndex = Math.floor(Math.random() * data.items.length);
+        const artist = data.items[randomIndex];
+        if (artist.images.length > 0) {
+          const randomImageIndex = Math.floor(
+            Math.random() * artist.images.length
+          );
+          setArtist(artist.images[randomImageIndex].url);
+        }
+      });
+    }
+  }, []);
+
   if (!hasToken) {
-    return <div></div>;
+    return null;
   }
   return (
     <div className="relative text-text bg-background font-gotham">
@@ -42,11 +57,13 @@ const Home = () => {
         <LatestPlaylists spotify={spotify} />
         <FavouriteTracks spotify={spotify} />
         <PortfolioBanner />
-        <img
-          className="absolute top-0 left-0 w-full h-screen opacity-30 blur-lg object-cover object-center"
-          src="https://i.scdn.co/image/ab67616d0000b273750d9fe0a5648ad5fde3a44e"
-          alt="Background"
-        />
+        {artist ? (
+          <img
+            className="absolute top-0 left-0 w-full h-screen opacity-20 blur-lg object-cover object-center"
+            src={artist}
+            alt="Background"
+          />
+        ) : null}
       </main>
     </div>
   );

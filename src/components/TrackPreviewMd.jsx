@@ -38,7 +38,6 @@ const TrackPreviewMd = ({ spotify, trackData }) => {
   useEffect(() => {
     spotify.getArtist(trackData.artists[0].id).then((data) => {
       setArtistImage(data.images[0].url);
-      console.log(data);
     });
   }, [spotify, trackData.artists]);
 
