@@ -65,7 +65,7 @@ const TrackPreviewMd = ({ trackData }) => {
           />
         )}
       </div>
-      <h3 className="line-clamp-2 text-md sm:text-lg">{trackData.name}</h3>
+      <h3 className="line-clamp-1 text-md sm:text-lg">{trackData.name}</h3>
       <Artists artists={trackData.artists} />
     </div>
   );
