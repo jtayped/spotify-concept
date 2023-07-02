@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-
-// Icons
-import { BsPlayFill } from "react-icons/bs";
-
-// JSX Components
+import { BsPlayFill, BsPauseFill } from "react-icons/bs";
 import Artists from "./Artists";
 
 const TrackPreviewMd = ({ trackData }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  let audioRef = null;
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -16,6 +14,24 @@ const TrackPreviewMd = ({ trackData }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
+  const handleButtonClick = () => {
+    if (audioRef) {
+      if (isPlaying) {
+        audioRef.pause();
+        audioRef.currentTime = 0;
+      } else {
+        audioRef.play();
+      }
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleAudioEnded = () => {
+    setIsPlaying(false);
+  };
+
+  const hasPreviewUrl = trackData.preview_url !== null;
 
   return (
     <div
@@ -29,13 +45,25 @@ const TrackPreviewMd = ({ trackData }) => {
           src={trackData.album.images[0].url}
           alt="Track"
         />
-        <button
-          className={`absolute right-1.5 bottom-1.5 rounded-full bg-primary-button hover:bg-primary-button/90 p-2 ${
-            isHovered ? "flex" : "md:hidden"
-          }`}
-        >
-          <BsPlayFill size={18} />
-        </button>
+        {hasPreviewUrl && (
+          <button
+            onClick={handleButtonClick}
+            className={`absolute right-1.5 bottom-1.5 rounded-full bg-primary-button hover:bg-primary-button/90 p-2 ${
+              isHovered ? "flex" : "md:hidden"
+            }`}
+          >
+            {isPlaying ? <BsPauseFill size={18} /> : <BsPlayFill size={18} />}
+          </button>
+        )}
+        {hasPreviewUrl && (
+          <audio
+            ref={(audio) => {
+              audioRef = audio;
+            }}
+            src={trackData.preview_url}
+            onEnded={handleAudioEnded}
+          />
+        )}
       </div>
       <h3 className="line-clamp-2 text-lg">{trackData.name}</h3>
       <Artists artists={trackData.artists} />
