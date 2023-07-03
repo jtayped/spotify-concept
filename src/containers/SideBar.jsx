@@ -38,7 +38,7 @@ const SideBar = ({ spotify }) => {
   const currentPage = window.location.pathname;
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-sidebar bg-secondary-button z-[10] p-4 flex-col gap-5 text-text/90 border-r border-gray-500/30 overflow-hidden flex">
+    <aside className="h-screen w-sidebar bg-secondary-button z-[20] p-4 flex-col gap-5 text-text/90 border-r border-gray-500/30 overflow-hidden flex">
       <img
         className="absolute top-0 left-0 w-full h-full object-cover object-center opacity-10 blur-[10px]"
         src={backgroundImage}

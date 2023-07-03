@@ -53,7 +53,7 @@ const Home = () => {
   }
   return (
     <div className="relative text-text bg-background font-gotham">
-      <div className="hidden md:flex">
+      <div className="hidden md:flex fixed top-0 left-0">
         <SideBar spotify={spotify} />
       </div>
       <main className="relative md:ml-sidebar sm:mt-0 p-5 md:p-10 flex flex-col gap-5 h-full">
