@@ -8,6 +8,7 @@ import {
   LatestPlaylists,
   FavouriteTracks,
   PortfolioBanner,
+  Header,
 } from "../containers";
 
 // Spotify
@@ -52,8 +53,11 @@ const Home = () => {
   }
   return (
     <div className="relative text-text bg-background font-gotham">
-      <SideBar spotify={spotify} />
-      <main className="relative md:ml-sidebar p-5 md:p-10 flex flex-col gap-5 h-full">
+      <div className="hidden md:flex">
+        <SideBar spotify={spotify} />
+      </div>
+      <main className="relative md:ml-sidebar sm:mt-0 p-5 md:p-10 flex flex-col gap-5 h-full">
+        <Header spotify={spotify} />
         <LatestPlaylists spotify={spotify} />
         <FavouriteTracks spotify={spotify} />
         <PortfolioBanner />
