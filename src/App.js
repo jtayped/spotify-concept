@@ -9,8 +9,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Auth />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/spotify-concept/" element={<Auth />} />
+        <Route path="/spotify-concept/home" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
