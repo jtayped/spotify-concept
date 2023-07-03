@@ -1,5 +1,5 @@
 export const authEndpoint = "https://accounts.spotify.com/authorize";
-const redirectURI = "http://localhost:3000/spotify-concept/home";
+const redirectURI = "http://joeltaylor.business/spotify-concept/home";
 const clientID = "945b1191612c4ba6953e1cfe07a20fcd";
 const scopes = [
   "user-follow-read",
